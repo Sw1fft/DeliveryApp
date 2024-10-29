@@ -1,5 +1,5 @@
-﻿using DeliveryApp.Models;
-using DeliveryApp.Models.Abstractions;
+﻿using DeliveryApp.Models.Abstractions;
+using DeliveryApp.Models;
 
 namespace DeliveryApp.Services
 {
@@ -7,12 +7,24 @@ namespace DeliveryApp.Services
     {
         public string AddNewOrder(Order order)
         {
-            throw new NotImplementedException();
+
+
+            using (StreamWriter sw = new("DataOrder.txt"))
+            {
+                sw.WriteLineAsync($"");
+            }
+
+            return "";
         }
 
         public List<Order> GetOrders()
         {
             throw new NotImplementedException();
+        }
+
+        public List<Order> OrderFilter(List<Order> orders, string district, DateTime firstDeliveryDateTime)
+        {
+            return orders;
         }
     }
 }

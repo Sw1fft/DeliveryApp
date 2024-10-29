@@ -1,4 +1,16 @@
+using DeliveryWebApp.Models.Abstractions;
+using Microsoft.EntityFrameworkCore;
+using DeliveryWebApp.Services;
+using DeliveryWebApp.Data;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddScoped<IOrdersService, OrdersService>();
+
+builder.Services.AddDbContext<OrderDbContext>(opt =>
+{
+    opt.UseNpgsql(builder.Configuration.GetConnectionString(nameof(OrderDbContext)));
+});
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
