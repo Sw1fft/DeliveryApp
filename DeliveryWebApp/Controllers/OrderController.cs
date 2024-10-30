@@ -10,19 +10,27 @@ namespace DeliveryWebApp.Controllers
     public class OrderController : ControllerBase
     {
         private readonly IOrdersService _ordersService;
+        private readonly ILogger<OrderController> _logger;
 
-        public OrderController(IOrdersService ordersService)
+        public OrderController(IOrdersService ordersService, ILogger<OrderController> logger)
         {
             _ordersService = ordersService;
+            _logger = logger;
+            _logger.LogTrace("NLog injected into OrderController");
         }
 
         [HttpGet]
         [Route("get_list")]
         public async Task<ActionResult<List<Order>>> GetListOrders()
         {
+            _logger.LogTrace("Получение списка заказаов...");
+
             List<Order> ordersList = await _ordersService.GetListOrders();
 
+            _logger.LogTrace("Возвращение списка: {0}", ordersList.Count);
+
             return Ok(ordersList);
+
         }
 
         [HttpPost]
