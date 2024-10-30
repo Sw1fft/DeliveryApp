@@ -7,12 +7,3 @@ services:
       POSTGRES_PASSWORD: "1234"
     ports:
       - "5432:5432"
-
-  postgres_logs:
-    image: postgres
-    environment:
-      POSTGRES_DB: "orderdblog"
-      POSTGRES_USER: "dbadmin"
-      POSTGRES_PASSWORD: "qwerty"
-    ports:
-      - "5433:5432"
