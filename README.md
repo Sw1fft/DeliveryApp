@@ -8,3 +8,7 @@
 
 - [ .NET SDK ](https://dotnet.microsoft.com/download) (рекомендуется версия 8.0)
 - [docker](https://www.docker.com/)
+
+## Примечание
+
+Для того, чтобы протестировать загрузку данных из файла, имеется orders.txt.
